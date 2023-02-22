@@ -1,10 +1,5 @@
-import React, { useEffect } from 'react';
-import {
-  Link,
-  useParams,
-  useNavigate,
-  useSearchParams,
-} from 'react-router-dom';
+import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   Row,
@@ -19,9 +14,8 @@ import Message from '../components/Message';
 import { addToCart, removeFromCart } from '../actions/cartActions';
 
 const CartScreen = () => {
-  const params = useParams();
   const navigate = useNavigate();
-  const [searchParams] = useSearchParams();
+  // const [searchParams] = useSearchParams();
 
   //   const productId = params.id;
 
