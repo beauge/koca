@@ -29,7 +29,7 @@ const ProductScreen = (history) => {
 
   useEffect(() => {
     dispatch(listProductDetails(params.id));
-  }, [params]);
+  }, [dispatch, params]);
 
   const addToCartHandler = () => {
     dispatch(addToCart(product._id, qty));
