@@ -5,6 +5,7 @@ import { Table, Button } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import Message from '../components/Message';
 import Loader from '../components/Loader';
+import Meta from '../components/Meta';
 import { listOrders } from '../actions/orderActions';
 
 const OrderListScreen = () => {
@@ -27,6 +28,7 @@ const OrderListScreen = () => {
 
   return (
     <>
+      <Meta title='Koca | Orders' />
       <h1>Orders</h1>
       {loading ? (
         <Loader />

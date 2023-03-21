@@ -5,6 +5,7 @@ import { Table, Button } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import Message from '../components/Message';
 import Loader from '../components/Loader';
+import Meta from '../components/Meta';
 import { listUsers, deleteUser } from '../actions/userActions';
 
 const UserListScreen = () => {
@@ -35,6 +36,7 @@ const UserListScreen = () => {
   };
   return (
     <>
+      <Meta title='Koca | Users' />
       <h1>Users</h1>
       {loading ? (
         <Loader />
