@@ -8,6 +8,7 @@ import Loader from '../components/Loader';
 import Meta from '../components/Meta';
 import { getUserDetails, updateUserProfile } from '../actions/userActions';
 import { listMyOrders } from '../actions/orderActions';
+import { USER_UPDATE_PROFILE_RESET } from '../constants/userConstants';
 
 const ProfileScreen = () => {
   const [firstName, setFirstName] = useState('');
@@ -36,7 +37,8 @@ const ProfileScreen = () => {
     if (!userInfo) {
       navigate('/login');
     } else {
-      if (!user.firstName) {
+      if (!user.firstName || success) {
+        dispatch({ type: USER_UPDATE_PROFILE_RESET });
         dispatch(getUserDetails('profile'));
         dispatch(listMyOrders());
       } else {
@@ -45,7 +47,7 @@ const ProfileScreen = () => {
         setEmail(user.email);
       }
     }
-  }, [dispatch, navigate, userInfo, user]);
+  }, [dispatch, navigate, userInfo, user, success]);
 
   const submitHandler = (e) => {
     e.preventDefault();
